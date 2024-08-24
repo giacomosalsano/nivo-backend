@@ -8,7 +8,7 @@ const usersRoutes = Router()
 const createUserController = new CreateUserController()
 
 usersRoutes.post(
-  '/',
+  '/register',
   celebrate({
     [Segments.BODY]: {
       email: Joi.string().email().required(),

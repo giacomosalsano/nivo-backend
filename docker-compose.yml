@@ -1,8 +1,8 @@
 version: '3'
 services:
-  tomaisvip_ceub:
+  nivo_backend:
     image: postgres
-    container_name: tomaisvip_local
+    container_name: nivo_local
     environment:
       POSTGRES_PASSWORD: docker
     ports:
