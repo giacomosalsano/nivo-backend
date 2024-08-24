@@ -1,4 +1,5 @@
 # Template NodeJS Express
+
 ## 📄 Finalidade
 
 > Facilitar a criação de novos projetos já pré-configurados com Express, Typescript e PrismaORM, uma estrutura de pastas já definidas e melhor separação do código.
