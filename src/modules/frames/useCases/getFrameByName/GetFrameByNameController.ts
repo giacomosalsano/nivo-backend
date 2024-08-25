@@ -1,6 +1,8 @@
-import { classToClass } from "class-transformer";
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import { Request, Response } from 'express'
+import { classToClass } from 'class-transformer'
+import { container } from 'tsyringe'
+
+import { GetFrameByNameUseCase } from './GetFrameByNameUseCase'
 
 class GetFrameByNameController {
   async handle(request: Request, response: Response): Promise<Response> {

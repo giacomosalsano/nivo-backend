@@ -4,13 +4,15 @@ import { Router } from 'express'
 import { CreateFrameController } from '@modules/frames/useCases/createFrame/CreateFrameController'
 import { GetFrameByIdController } from '@modules/frames/useCases/getFrameById/GetFrameByIdController'
 import { GetAllFramesController } from '@modules/frames/useCases/getAllFrames/GetAllFramesController'
-import { UpdateFrameController } from '@modules/frames/useCases/updateFrame/updateFrameController'
-import { DeleteFrameController } from '@modules/frames/useCases/deleteFrame/deleteFrameController'
+import { UpdateFrameController } from '@modules/frames/useCases/updateFrame/UpdateFrameController'
+import { DeleteFrameController } from '@modules/frames/useCases/deleteFrame/DeleteFrameController'
+import { GetFrameByNameController } from '@modules/frames/useCases/getFrameByName/GetFrameByNameController'
 
 const framesRoutes = Router()
 
 const createFrameController = new CreateFrameController()
 const getFrameByIdController = new GetFrameByIdController()
+const getFrameByNameController = new GetFrameByNameController()
 const getAllFramesController = new GetAllFramesController()
 const updateFrameController = new UpdateFrameController()
 const deleteFrameController = new DeleteFrameController()
@@ -43,7 +45,7 @@ framesRoutes.get(
       name: Joi.string().required(),
     },
   }),
-  getFrameByIdController.handle,
+  getFrameByNameController.handle,
 )
 
 framesRoutes.get('/', getAllFramesController.handle)

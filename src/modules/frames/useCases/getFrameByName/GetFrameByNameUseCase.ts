@@ -1,6 +1,9 @@
-import { IFramesRepository } from "@modules/frames/repositories/IFramesRepository";
-import { AppError } from "@shared/errors/AppError";
-import { inject, injectable } from "tsyringe";
+import { inject, injectable } from 'tsyringe'
+
+import { Frame } from '@modules/frames/models/Frames'
+
+import { IFramesRepository } from '@modules/frames/repositories/IFramesRepository'
+import { AppError } from '@shared/errors/AppError'
 
 interface IRequest {
   name: string
@@ -17,9 +20,14 @@ class GetFrameByNameUseCase {
     const frame = await this.framesRepository.findByName(name)
 
     if (!frame) {
-      throw new AppError('src/modules/frames/useCases/getFrameById/GetFrameByIdUseCase.ts', 404)
+      throw new AppError(
+        'src/modules/frames/useCases/getFrameById/GetFrameByIdUseCase.ts',
+        404,
+      )
     }
 
     return frame
-  })
+  }
 }
+
+export { GetFrameByNameUseCase }
