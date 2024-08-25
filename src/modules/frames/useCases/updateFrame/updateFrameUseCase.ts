@@ -1,7 +1,8 @@
-import { Frame } from '@modules/frames/models/Frames'
-import { IFramesRepository } from '@modules/frames/repositories/IFramesRepository'
-import { AppError } from '@shared/errors/AppError'
 import { inject, injectable } from 'tsyringe'
+import { AppError } from '@shared/errors/AppError'
+
+import { IFramesRepository } from '@modules/frames/repositories/IFramesRepository'
+import { Frame } from '@modules/frames/models/Frames'
 
 interface IRequest {
   id: string
@@ -22,7 +23,7 @@ class UpdateFrameUseCase {
     if (!frame) {
       throw new AppError('It looks like this frame does not exist...', 404)
     }
-    const newFrame = await this.framesRepository.update({ ...frames, ...data })
+    const newFrame = await this.framesRepository.update({ ...frame, ...data })
 
     return newFrame
   }

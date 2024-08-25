@@ -29,7 +29,7 @@ framesRoutes.post(
 )
 
 framesRoutes.get(
-  '/:id',
+  '/getById/:id',
   celebrate({
     [Segments.PARAMS]: {
       id: Joi.string().uuid().required(),
@@ -39,9 +39,9 @@ framesRoutes.get(
 )
 
 framesRoutes.get(
-  '/:name',
+  '/getByName',
   celebrate({
-    [Segments.PARAMS]: {
+    [Segments.QUERY]: {
       name: Joi.string().required(),
     },
   }),

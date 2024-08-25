@@ -1,7 +1,8 @@
-import { classToClass } from 'class-transformer'
 import { Request, Response } from 'express'
+import { classToClass } from 'class-transformer'
 import { container } from 'tsyringe'
-import { UpdateFrameUseCase } from './updateFrameUseCase'
+
+import { UpdateFrameUseCase } from './UpdateFrameUseCase'
 
 class UpdateFrameController {
   async handle(request: Request, response: Response): Promise<Response> {

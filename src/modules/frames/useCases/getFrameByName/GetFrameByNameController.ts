@@ -6,7 +6,7 @@ import { GetFrameByNameUseCase } from './GetFrameByNameUseCase'
 
 class GetFrameByNameController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name } = request.params
+    const name: string = request.query.name as string
 
     const getFrameByNameUseCase = container.resolve(GetFrameByNameUseCase)
 

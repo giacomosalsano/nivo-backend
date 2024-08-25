@@ -20,7 +20,7 @@ class GetFrameByIdUseCase {
     const frame = await this.framesRepository.findById(id)
 
     if (!frame) {
-      throw new AppError('It Looks like this frame does not exist...', 404)
+      throw new AppError('It looks like this frame does not exist...', 404)
     }
 
     return frame

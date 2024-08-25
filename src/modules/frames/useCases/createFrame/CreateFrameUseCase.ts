@@ -22,7 +22,7 @@ class CreateFrameUseCase {
 
     if (frameAlreadyExists) {
       throw new AppError(
-        'A frame with this name already exists. Please choose another name',
+        'A frame with this name already exists. Please choose another name.',
         400,
       )
     }

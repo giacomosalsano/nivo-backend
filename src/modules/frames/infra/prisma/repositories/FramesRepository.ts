@@ -32,7 +32,7 @@ class FramesRepository implements IFramesRepository {
     return frame
   }
 
-  public async findByName(name: string): Promise<Frame | undefined> {
+  public async findByName(name: string): Promise<Frame | null> {
     const frame = await this.repository.findFirst({
       where: {
         name,
