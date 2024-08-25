@@ -50,6 +50,16 @@ class FramesRepository implements IFramesRepository {
 
     return frame
   }
+
+  public async delete(id: string): Promise<Frame> {
+    const frame = await this.repository.delete({
+      where: {
+        id,
+      },
+    })
+
+    return frame
+  }
 }
 
 export { FramesRepository }

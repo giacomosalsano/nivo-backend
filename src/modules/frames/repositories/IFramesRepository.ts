@@ -7,6 +7,7 @@ interface IFramesRepository {
   findById(id: string): Promise<Frame | undefined>
   findAll(): Promise<Frame[]>
   update(data: IUpdateFrameDTO): Promise<Frame | undefined>
+  delete(id: string): Promise<Frame | undefined>
 }
 
 export { IFramesRepository }
