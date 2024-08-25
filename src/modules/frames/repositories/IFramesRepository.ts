@@ -4,6 +4,7 @@ import { Frame } from '../models/Frames'
 interface IFramesRepository {
   create(data: ICreateFrameDTO): Promise<Frame>
   findById(id: string): Promise<Frame | undefined>
+  findAll(): Promise<Frame[]>
 }
 
 export { IFramesRepository }

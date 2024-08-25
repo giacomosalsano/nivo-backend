@@ -30,6 +30,12 @@ class FramesRepository implements IFramesRepository {
 
     return frame
   }
+
+  public async findAll(): Promise<Frame[]> {
+    const frames = await this.repository.findMany()
+
+    return frames
+  }
 }
 
 export { FramesRepository }
