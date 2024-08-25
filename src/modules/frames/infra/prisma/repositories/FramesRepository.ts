@@ -1,4 +1,5 @@
 import { ICreateFrameDTO } from '@modules/frames/dtos/ICreateFrameDTO'
+import { IUpdateFrameDTO } from '@modules/frames/dtos/IUpdateFrameDTO'
 import { Frame } from '@modules/frames/models/Frames'
 import { IFramesRepository } from '@modules/frames/repositories/IFramesRepository'
 import { prisma } from '@shared/infra/prisma'
@@ -35,6 +36,19 @@ class FramesRepository implements IFramesRepository {
     const frames = await this.repository.findMany()
 
     return frames
+  }
+
+  public async update({
+    id,
+    name,
+    htmlContent,
+  }: IUpdateFrameDTO): Promise<Frame> {
+    const frame = await this.repository.update({
+      where: { id },
+      data: { name, htmlContent },
+    })
+
+    return frame
   }
 }
 
