@@ -18,6 +18,12 @@ class CreateFrameUseCase {
   ) {}
 
   public async execute({ name, htmlContent }: IRequest): Promise<Frame> {
+    const frameAlreadyExists = await this.framesRepository.findById(name)
+
+    if (frameAlreadyExists) {
+      throw new AppError('A frame with this name already exists...', 400)
+    }
+
     const frame = await this.framesRepository.create({
       name,
       htmlContent,

@@ -32,6 +32,16 @@ class FramesRepository implements IFramesRepository {
     return frame
   }
 
+  public async findByName(name: string): Promise<Frame | undefined> {
+    const frame = await this.repository.findFirst({
+      where: {
+        name,
+      },
+    })
+
+    return frame
+  }
+
   public async findAll(): Promise<Frame[]> {
     const frames = await this.repository.findMany()
 

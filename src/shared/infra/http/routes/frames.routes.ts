@@ -36,13 +36,23 @@ framesRoutes.get(
   getFrameByIdController.handle,
 )
 
+framesRoutes.get(
+  '/:name',
+  celebrate({
+    [Segments.PARAMS]: {
+      name: Joi.string().required(),
+    },
+  }),
+  getFrameByIdController.handle,
+)
+
 framesRoutes.get('/', getAllFramesController.handle)
 
 framesRoutes.put(
   '/editFrame/:id',
   celebrate({
     [Segments.PARAMS]: {
-      Id: Joi.string().uuid().required(),
+      id: Joi.string().uuid().required(),
     },
     [Segments.BODY]: {
       name: Joi.string().required(),
