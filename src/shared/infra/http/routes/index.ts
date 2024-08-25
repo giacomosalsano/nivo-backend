@@ -1,9 +1,8 @@
 import { Router } from 'express'
-
-import { usersRoutes } from './users.routes'
+import { framesRoutes } from './frames.routes'
 
 const router = Router()
 
-router.use('/users', usersRoutes)
+router.use('/frames', framesRoutes)
 
 export { router }

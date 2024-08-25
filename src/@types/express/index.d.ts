@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 declare namespace Express {
   export interface Request {
-    user: {
+    frame: {
       id: string
       email: string
     }

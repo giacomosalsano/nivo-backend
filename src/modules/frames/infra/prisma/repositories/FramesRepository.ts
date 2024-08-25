@@ -1,44 +1,35 @@
-import { ICreateUserDTO } from '@modules/users/dtos/ICreateUserDTO'
+import { ICreateFrameDTO } from '@modules/frames/dtos/ICreateFrameDTO'
 import { Frame } from '@modules/frames/models/Frames'
 import { IFramesRepository } from '@modules/frames/repositories/IFramesRepository'
 import { prisma } from '@shared/infra/prisma'
 
 class FramesRepository implements IFramesRepository {
-  private repository: typeof prisma.user
+  private repository: typeof prisma.frame
 
   constructor() {
-    this.repository = prisma.user
+    this.repository = prisma.frame
   }
 
-  async findByEmail(email: string): Promise<Frame> {
-    const user = await this.repository.findFirst({
-      where: {
-        email,
-      },
-    })
-
-    return user
-  }
-
-  public async create({
-    email,
-    name,
-    password,
-    phone,
-    tenantId,
-  }: ICreateUserDTO): Promise<User> {
-    const user = await this.repository.create({
+  public async create({ name, htmlContent }: ICreateFrameDTO): Promise<Frame> {
+    const frame = await this.repository.create({
       data: {
-        email,
         name,
-        password,
-        phone,
-        tenantId,
+        htmlContent,
       },
     })
 
-    return user
+    return frame
+  }
+
+  public async findById(id: string): Promise<Frame | undefined> {
+    const frame = await this.repository.findFirst({
+      where: {
+        id,
+      },
+    })
+
+    return frame
   }
 }
 
-export { UsersRepository }
+export { FramesRepository }

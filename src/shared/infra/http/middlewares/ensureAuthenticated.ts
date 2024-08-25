@@ -23,10 +23,10 @@ export async function ensureAuthenticated(
   const [, token] = authHeader.split(' ')
 
   try {
-    const { sub: userId, email } = verify(token, auth.secretToken) as IPayload
+    const { sub: frameId, email } = verify(token, auth.secretToken) as IPayload
 
-    request.user = {
-      id: userId,
+    request.frame = {
+      id: frameId,
       email,
     }
 
