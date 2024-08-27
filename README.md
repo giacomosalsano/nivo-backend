@@ -1,16 +1,47 @@
-# Template NodeJS Express
 
-## 📄 Finalidade
+<h1 align="center"> Nivo-App Back-End</h1>
 
-> Facilitar a criação de novos projetos já pré-configurados com Express, Typescript e PrismaORM, uma estrutura de pastas já definidas e melhor separação do código.
+<p align="center">
+Project developed for a Test. <br/>
+</p>
 
-## 🧪 Principais Tecnologias usadas
+<p align="center">
+  <a href="#-tecnologias">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-aplicacao">Como iniciar a aplicação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">License</a>
+</p>
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
 
-- [ExpressJS](https://expressjs.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Prisma ORM](https://www.prisma.io/)
+<br>
+
+
+## 🚀 Technologies
+
+This project was developed with the following tools:
+
+- React.JS
+- React Query
+- React Hook Form
+- TailwindCSS
+- Node.JS
+- Prisma
+- Postgres
+- Axios
+- Zod
+- Vite
+- ContextAPI
+- Docker
+- Postman
+
+
+
+## 💻 Project
+
+This project is an incomplete form that allows the registration for a list.
 
 ## 🚀 Como iniciar a aplicação
 
@@ -18,23 +49,26 @@ Para iniciá-lo, siga os passos abaixo:
 
 ```bash
 # Instalando dependências:
-$ yarn
+$ npm i
 
 # Criar apartir do .env.example, o arquivo .env
 $ copy .env.example .env
 
 # Dentro do arquivo .env, adicione o caminho na variável de ambiente DATABASE_URL
-DATABASE_URL="postgresql://postgres:123123@localhost:5432/postgres?schema=public"
+DATABASE_URL="postgresql://postgres:docker@localhost:5432/postgres?schema=public"
 
 # Ainda no arquivo .env, adicione qual porta você quer que o projeto inicie. No exemplo abaixo vai iniciar na porta 3333
 PORT=3333
 
 # Rodando em modo de desenvolvimento:
-$ yarn dev
+$ npm run dev
 
 O app estará disponível no seu browser pelo endereço http://localhost:3333 assim que iniciado.
 ```
 
-## Authors
+## :memo: License
 
-- [@lEduFranco](https://github.com/lEduFranco)
+This project is under the MIT license.
+
+---
+
