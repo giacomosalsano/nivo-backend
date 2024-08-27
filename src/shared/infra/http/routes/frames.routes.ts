@@ -21,7 +21,9 @@ framesRoutes.post(
   '/createFrame',
   celebrate({
     [Segments.BODY]: {
-      name: Joi.string().required(),
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      frameNameSlug: Joi.string().required(),
       htmlContent: Joi.string().required(),
     },
   }),
@@ -42,7 +44,7 @@ framesRoutes.get(
   '/getByName',
   celebrate({
     [Segments.QUERY]: {
-      name: Joi.string().required(),
+      frameNameSlug: Joi.string().required(),
     },
   }),
   getFrameByNameController.handle,
@@ -57,7 +59,9 @@ framesRoutes.put(
       id: Joi.string().uuid().required(),
     },
     [Segments.BODY]: {
-      name: Joi.string().required(),
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      frameNameSlug: Joi.string().required(),
       htmlContent: Joi.string().required(),
     },
   }),

@@ -1,6 +1,8 @@
 class Frame {
   id: string
-  name: string
+  firstName: string
+  lastName: string
+  frameNameSlug: string
   htmlContent: string
 
   createdAt: Date

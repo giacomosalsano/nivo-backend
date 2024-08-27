@@ -6,7 +6,9 @@ import { AppError } from '@shared/errors/AppError'
 import { Frame } from '@modules/frames/models/Frames'
 
 interface IRequest {
-  name: string
+  firstName: string
+  lastName: string
+  frameNameSlug: string
   htmlContent: string
 }
 
@@ -17,8 +19,15 @@ class CreateFrameUseCase {
     private framesRepository: IFramesRepository,
   ) {}
 
-  public async execute({ name, htmlContent }: IRequest): Promise<Frame> {
-    const frameAlreadyExists = await this.framesRepository.findByName(name)
+  public async execute({
+    firstName,
+    lastName,
+    frameNameSlug,
+    htmlContent,
+  }: IRequest): Promise<Frame> {
+    const frameAlreadyExists = await this.framesRepository.findByName(
+      frameNameSlug,
+    )
 
     if (frameAlreadyExists) {
       throw new AppError(
@@ -28,7 +37,9 @@ class CreateFrameUseCase {
     }
 
     const frame = await this.framesRepository.create({
-      name,
+      firstName,
+      lastName,
+      frameNameSlug,
       htmlContent,
     })
     return frame

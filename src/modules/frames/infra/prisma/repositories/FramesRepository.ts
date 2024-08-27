@@ -11,10 +11,17 @@ class FramesRepository implements IFramesRepository {
     this.repository = prisma.frame
   }
 
-  public async create({ name, htmlContent }: ICreateFrameDTO): Promise<Frame> {
+  public async create({
+    firstName,
+    lastName,
+    frameNameSlug,
+    htmlContent,
+  }: ICreateFrameDTO): Promise<Frame> {
     const frame = await this.repository.create({
       data: {
-        name,
+        firstName,
+        lastName,
+        frameNameSlug,
         htmlContent,
       },
     })
@@ -32,10 +39,10 @@ class FramesRepository implements IFramesRepository {
     return frame
   }
 
-  public async findByName(name: string): Promise<Frame | null> {
+  public async findByName(frameNameSlug: string): Promise<Frame | null> {
     const frame = await this.repository.findFirst({
       where: {
-        name,
+        frameNameSlug,
       },
     })
 
@@ -50,12 +57,14 @@ class FramesRepository implements IFramesRepository {
 
   public async update({
     id,
-    name,
+    firstName,
+    lastName,
+    frameNameSlug,
     htmlContent,
   }: IUpdateFrameDTO): Promise<Frame> {
     const frame = await this.repository.update({
       where: { id },
-      data: { name, htmlContent },
+      data: { firstName, lastName, frameNameSlug, htmlContent },
     })
 
     return frame

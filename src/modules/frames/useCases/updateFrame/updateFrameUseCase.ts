@@ -6,7 +6,9 @@ import { Frame } from '@modules/frames/models/Frames'
 
 interface IRequest {
   id: string
-  name: string
+  firstName: string
+  lastName: string
+  frameNameSlug: string
   htmlContent: string
 }
 

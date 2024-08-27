@@ -11,11 +11,13 @@ datasource db {
 }
 
 model Frame {
-  id          String      @id @default(uuid())
-  name        String
-  htmlContent String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              String      @id @default(uuid())
+  firstName        String
+  lastName        String
+  frameNameSlug   String
+  htmlContent     String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   @@map("frames")
 }

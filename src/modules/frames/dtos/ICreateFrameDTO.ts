@@ -1,5 +1,7 @@
 interface ICreateFrameDTO {
-  name: string
+  firstName: string
+  lastName: string
+  frameNameSlug: string
   htmlContent: string
 }
 
