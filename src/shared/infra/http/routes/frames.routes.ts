@@ -41,9 +41,9 @@ framesRoutes.get(
 )
 
 framesRoutes.get(
-  '/getByName',
+  '/getByName/:frameNameSlug',
   celebrate({
-    [Segments.QUERY]: {
+    [Segments.PARAMS]: {
       frameNameSlug: Joi.string().required(),
     },
   }),
